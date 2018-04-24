@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Testing</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block head_title %} {{instance.title}}{% endblock head_title %}
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li
-    {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+<style>
+    {% block style %}
+        h1{
+            color:#777777;
+        }
+    {% endblock style %}
 
-<h1>{{title}} is Working</h1>
+</style>
+
+{% block content %}
+
+<h1>{{title}}</h1>
 
 {{instance.title}}<br>
 {{instance.content}}<br>
 {{instance.timestamp}}<br>
 {{instance.updated}}<br>
 
-</body>
-</html>
+{% endblock content %}
